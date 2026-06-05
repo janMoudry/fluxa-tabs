@@ -1,0 +1,61 @@
+{
+	"name": "@moudrey/fluxa-tabs",
+	"version": "0.0.1",
+	"description": "Fluxa plugin for browser tab transport.",
+	"type": "module",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"sideEffects": false,
+	"scripts": {
+		"build": "tsup src/index.ts --format cjs,esm --dts --clean",
+		"lint": "eslint \"src/**/*.ts\" \"test/**/*.ts\"",
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run",
+		"prepublishOnly": "npm run build && npm run typecheck && npm test"
+	},
+	"peerDependencies": {
+		"@moudrey/fluxa-core": ">=0.0.4 <0.1.0"
+	},
+	"devDependencies": {
+		"@moudrey/fluxa-core": "^0.0.4",
+		"@typescript-eslint/eslint-plugin": "^7.0.1",
+		"@typescript-eslint/parser": "^7.0.1",
+		"eslint": "^8.57.0",
+		"eslint-plugin-import": "^2.29.1",
+		"tsup": "^8.0.2",
+		"typescript": "^5.4.5",
+		"vitest": "^2.0.5"
+	},
+	"keywords": [
+		"fluxa",
+		"plugin",
+		"events",
+		"tabs",
+		"broadcastchannel",
+		"storage"
+	],
+	"author": "Jan Moudry",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/janMoudry/fluxa-tabs.git"
+	},
+	"homepage": "https://github.com/janMoudry/fluxa-tabs",
+	"bugs": {
+		"url": "https://github.com/janMoudry/fluxa-tabs/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
